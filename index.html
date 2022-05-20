@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eisenhower-Matrix</title>
+
+    <!-- Bootstrap CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Eisenhower-Matrix</h1>
+      <div class="graph mt-4">
+        <div class="row">
+          <div class="col graph-lines-vertically">
+            <span>Wichtigkeit</span>
+          </div>
+          <div class="col ps-3 pb-2">
+            <div class="row mb-3"></div>
+            <div class="row row-cols-2 text-center">
+              <div class="col border rounded field" id="plan">
+                wichtig, aber nicht dringend (<strong>PLANEN</strong>)
+                <ul
+                  class="list-group drag-containers"
+                  id="list_plan"
+                ></ul>
+              </div>
+              <div class="col border rounded field" id="do">
+                wichtig und dringend (<strong>ERLEDIGEN</strong>)
+                <ul
+                class="list-group drag-containers"
+                id="list_do"
+              ></ul>
+              </div>
+            </div>
+
+              <div class="row row-cols-2">
+                <div class="col col-input">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Aufgabe hinzufügen..."
+                      aria-label="Aufgabe hinzufügen..."
+                      aria-describedby="button-addon2"
+                      id="task_plan"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="add_plan"
+                    >
+                      Hinzufügen
+                    </button>
+                  </div>
+                </div>
+                <div class="col col-input">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Aufgabe hinzufügen..."
+                      aria-label="Aufgabe hinzufügen..."
+                      aria-describedby="button-addon2"
+                      id="task_do"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="add_do"
+                    >
+                      Hinzufügen
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-cols-2 text-center">
+                <div class="col border rounded field" id="delete">
+                  nicht wichtig und nicht dringend (<strong>LÖSCHEN</strong>)
+                  <ul
+                class="list-group drag-containers"
+                id="list_delete"
+              ></ul>
+                </div>
+                <div class="col border rounded field" id="delegate">
+                  nicht wichtig, aber dringend (<strong>DELEGIEREN</strong>)
+                  <ul
+                class="list-group drag-containers"
+                id="list_delegate"
+              ></ul>
+                </div>
+              </div>
+
+              <div class="row row-cols-2">
+                <div class="col col-input">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Aufgabe hinzufügen..."
+                      aria-label="Aufgabe hinzufügen..."
+                      aria-describedby="button-addon2"
+                      id="task_delete"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="add_delete"
+                    >
+                      Hinzufügen
+                    </button>
+                  </div>
+                </div>
+                <div class="col col-input">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Aufgabe hinzufügen..."
+                      aria-label="Aufgabe hinzufügen..."
+                      aria-describedby="button-addon2"
+                      id="task_delegate"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="add_delegate"
+                    >
+                      Hinzufügen
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="row graph-lines-horizontally">
+          <span class="mt-2">Dringlichkeit</span>
+        </div>
+        <button class="btn btn-primary mt-4" onclick="window.print()">Matrix drucken</button>
+      </div>
+
+    </div>
+    <script src="/src/app.js"></script>
+  </body>
+</html>

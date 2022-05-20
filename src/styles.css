@@ -1,0 +1,73 @@
+* {
+  print-color-adjust: exact;
+}
+
+li {
+  list-style-type: none;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 10px;
+
+  min-width: 21vw;
+  max-width: 21vw;
+}
+
+li:hover {
+  cursor: move;
+}
+
+.field,
+.drag-containers {
+  height: 30vh;
+  width: 23vw;
+
+  color: grey;
+}
+
+.graph-lines-vertically {
+  padding: 0;
+  background: black;
+  max-width: 3px;
+  min-width: 3px;
+}
+
+.graph-lines-vertically span {
+  font-weight: bold;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+
+  position: relative;
+
+  top: 27vh;
+  right: 3vw;
+}
+
+.graph-lines-horizontally {
+  padding: 0;
+  background: black;
+  height: 3px;
+  max-width: 48vw;
+}
+
+.graph-lines-horizontally span {
+  font-weight: bold;
+  position: relative;
+
+  left: 20vw;
+}
+
+.col-input {
+  padding: 0;
+  max-width: 23vw;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: 25vw;
+  }
+}

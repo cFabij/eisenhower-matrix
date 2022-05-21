@@ -7,21 +7,31 @@ li {
   border: 1px solid grey;
   border-radius: 4px;
   padding: 5px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 
-  min-width: 21vw;
-  max-width: 21vw;
+  position: relative;
 }
 
 li:hover {
   cursor: move;
+  background-color: rgb(245, 245, 245);
+}
+
+li .close {
+  position: absolute;
+  right: 1rem;
+
+  color: red;
+  cursor: pointer;
 }
 
 .field,
 .drag-containers {
-  height: 30vh;
-  width: 23vw;
+  min-height: 30vh;
+  min-width: 23vw;
+}
 
+.drag-containers {
   color: grey;
 }
 
@@ -33,33 +43,23 @@ li:hover {
 }
 
 .graph-lines-vertically span {
-  font-weight: bold;
   writing-mode: vertical-lr;
   text-orientation: upright;
 
   position: relative;
 
-  top: 27vh;
-  right: 3vw;
+  top: 1.5vh;
+  right: 2vw;
 }
 
 .graph-lines-horizontally {
   padding: 0;
   background: black;
   height: 3px;
-  max-width: 48vw;
-}
-
-.graph-lines-horizontally span {
-  font-weight: bold;
-  position: relative;
-
-  left: 20vw;
 }
 
 .col-input {
   padding: 0;
-  max-width: 23vw;
 }
 
 .dragging {
@@ -68,6 +68,16 @@ li:hover {
 
 @media (max-width: 768px) {
   .container {
-    margin-left: 25vw;
+    margin-left: 10vw;
+  }
+
+  .graph-lines-vertically span {
+    right: 4vw;
+  }
+
+  .field,
+  .drag-containers {
+    min-height: 5vh;
+    min-width: 0;
   }
 }

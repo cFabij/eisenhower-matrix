@@ -17,27 +17,29 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
       <h1>Eisenhower-Matrix</h1>
       <div class="graph mt-4">
         <div class="row">
-          <div class="col graph-lines-vertically">
-            <span>Wichtigkeit</span>
+          <div class="col align-self-stretch graph-lines-vertically">
+            <span class="fw-bold">Wichtigkeit</span>
           </div>
+
           <div class="col ps-3 pb-2">
-            <div class="row mb-3"></div>
-            <div class="row row-cols-2 text-center">
-              <div class="col border rounded field" id="plan">
-                wichtig, aber nicht dringend (<strong>PLANEN</strong>)
+            <div class="row row-cols-2 text-center mt-3">
+              <div class="col border rounded field d-flex flex-column" id="plan">
+                <p class="mt-2">wichtig, aber nicht dringend (<strong>PLANEN</strong>)</p>
+              
                 <ul
-                  class="list-group drag-containers"
+                  class="list-group drag-containers flex-fill"
                   id="list_plan"
                 ></ul>
               </div>
-              <div class="col border rounded field" id="do">
-                wichtig und dringend (<strong>ERLEDIGEN</strong>)
+              <div class="col border rounded field d-flex flex-column" id="do">
+                <p class="mt-2">wichtig und dringend (<strong>ERLEDIGEN</strong>)</p>
+              
                 <ul
-                class="list-group drag-containers"
+                class="list-group drag-containers flex-fill"
                 id="list_do"
               ></ul>
               </div>
@@ -63,6 +65,7 @@
                     </button>
                   </div>
                 </div>
+                
                 <div class="col col-input">
                   <div class="input-group">
                     <input
@@ -85,17 +88,18 @@
               </div>
 
               <div class="row row-cols-2 text-center">
-                <div class="col border rounded field" id="delete">
-                  nicht wichtig und nicht dringend (<strong>LÖSCHEN</strong>)
+                <div class="col border rounded field d-flex flex-column" id="delete">
+                  <p class="mt-2">nicht wichtig und nicht dringend (<strong>LÖSCHEN</strong>)</p>
                   <ul
-                class="list-group drag-containers"
+                class="list-group drag-containers flex-fill"
                 id="list_delete"
               ></ul>
                 </div>
-                <div class="col border rounded field" id="delegate">
-                  nicht wichtig, aber dringend (<strong>DELEGIEREN</strong>)
+
+                <div class="col border rounded field d-flex flex-column" id="delegate">
+                 <p class="mt-2">nicht wichtig, aber dringend (<strong>DELEGIEREN</strong>)</p>
                   <ul
-                class="list-group drag-containers"
+                class="list-group drag-containers flex-fill"
                 id="list_delegate"
               ></ul>
                 </div>
@@ -121,6 +125,7 @@
                     </button>
                   </div>
                 </div>
+
                 <div class="col col-input">
                   <div class="input-group">
                     <input
@@ -140,15 +145,14 @@
                     </button>
                   </div>
                 </div>
-              </div>
-              
+              </div>   
             </div>
           </div>
         </div>
-        <div class="row graph-lines-horizontally">
-          <span class="mt-2">Dringlichkeit</span>
+
+        <div class="row graph-lines-horizontally text-center">
+          <span class="mt-2 fw-bold">Dringlichkeit</span>
         </div>
-        <button class="btn btn-primary mt-4" onclick="window.print()">Matrix drucken</button>
       </div>
 
     </div>

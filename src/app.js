@@ -1,6 +1,9 @@
+const limit = 10;
+
 const dragContainers = document.querySelectorAll(".drag-containers");
-let draggables = null;
-let draggedParentNode = null;
+let draggables;
+let closeMarker;
+let draggedParentNode;
 
 document.addEventListener("dragstart", (event) => {
   draggedParentNode = event.target.parentNode;
@@ -25,7 +28,7 @@ dragContainers.forEach((container) => {
     event.preventDefault();
     const draggable = document.querySelector(".dragging");
 
-    if (container.childNodes.length > 5) {
+    if (container.childNodes.length > limit) {
       container.removeChild(draggable);
       draggedParentNode.appendChild(draggable);
       alert("Erstmal was abarbeiten ; )");
@@ -33,10 +36,24 @@ dragContainers.forEach((container) => {
   });
 });
 
-function getDraggables() {
+function getDraggablesAndClose() {
   draggables = document.querySelectorAll(".draggable");
+  closeMarker = document.querySelectorAll(".close");
 
   dragListeners();
+  closeListeners();
+}
+
+function closeListeners() {
+  closeMarker.forEach((close) => {
+    close.addEventListener("click", (event) => {
+      let deleteListItem = event.target.parentNode;
+      let listItemParentNode = deleteListItem.parentNode;
+      if (listItemParentNode != null) {
+        listItemParentNode.removeChild(deleteListItem);
+      }
+    });
+  });
 }
 
 function dragListeners() {
@@ -86,6 +103,8 @@ function createTask(text) {
 
     node.appendChild(textnode);
 
+    node.innerHTML += "<span class='close'>&times;</span>";
+
     return node;
   }
 }
@@ -95,7 +114,7 @@ function newItemPlan() {
 
   let node = createTask(text);
 
-  if (document.getElementById("list_plan").childNodes.length == 5) {
+  if (document.getElementById("list_plan").childNodes.length == limit) {
     alert("Erstmal was abarbeiten ; )");
   } else {
     if (node != null) {
@@ -104,7 +123,7 @@ function newItemPlan() {
     }
   }
 
-  getDraggables();
+  getDraggablesAndClose();
 }
 
 function newItemDo() {
@@ -112,7 +131,7 @@ function newItemDo() {
 
   let node = createTask(text);
 
-  if (document.getElementById("list_do").childNodes.length == 5) {
+  if (document.getElementById("list_do").childNodes.length == limit) {
     alert("Erstmal was abarbeiten ; )");
   } else {
     if (node != null) {
@@ -120,7 +139,7 @@ function newItemDo() {
     }
   }
 
-  getDraggables();
+  getDraggablesAndClose();
 }
 
 function newItemDelete() {
@@ -128,7 +147,7 @@ function newItemDelete() {
 
   let node = createTask(text);
 
-  if (document.getElementById("list_delete").childNodes.length == 5) {
+  if (document.getElementById("list_delete").childNodes.length == limit) {
     alert("Erstmal was abarbeiten ; )");
   } else {
     if (node != null) {
@@ -136,7 +155,7 @@ function newItemDelete() {
     }
   }
 
-  getDraggables();
+  getDraggablesAndClose();
 }
 
 function newItemDelegate() {
@@ -144,7 +163,7 @@ function newItemDelegate() {
 
   let node = createTask(text);
 
-  if (document.getElementById("list_delegate").childNodes.length == 5) {
+  if (document.getElementById("list_delegate").childNodes.length == limit) {
     alert("Erstmal was abarbeiten ; )");
   } else {
     if (node != null) {
@@ -152,7 +171,7 @@ function newItemDelegate() {
     }
   }
 
-  getDraggables();
+  getDraggablesAndClose();
 }
 
 let taskAddPlan = document.getElementById("add_plan");
